@@ -73,7 +73,7 @@ public class CinemaAPIController {
             if (b == null) {
                 throw new CinemaPersistenceException("No se encontro la funcion " + date);
             }
-            return new ResponseEntity<>(b, HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(b.getMovie(), HttpStatus.ACCEPTED);
         } catch (CinemaPersistenceException ex) {
             Logger.getLogger(CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Funcion no encontrada", HttpStatus.NOT_FOUND);
