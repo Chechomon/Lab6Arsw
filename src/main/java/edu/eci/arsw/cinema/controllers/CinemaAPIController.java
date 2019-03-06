@@ -41,9 +41,9 @@ public class CinemaAPIController {
     }
     
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public ResponseEntity<?> getFunctionsbyCinema(@PathVariable String cinema){
+    public ResponseEntity<?> getFunctionsbyCinema(@PathVariable String name){
         try {
-            return new ResponseEntity<>(cinemaServices.getCinemaByName(cinema), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(cinemaServices.getFunctionsbyCinema(name), HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(edu.eci.arsw.cinema.controllers.CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Cine no encontrado ",HttpStatus.NOT_FOUND);
@@ -51,9 +51,9 @@ public class CinemaAPIController {
     }
     
     @RequestMapping(value="/{name}/{date}", method = RequestMethod.GET)
-    public ResponseEntity<?> getFunctionsbyCinemaAndDate(@PathVariable String cinema, @PathVariable String date){
+    public ResponseEntity<?> getFunctionsbyCinemaAndDate(@PathVariable String name, @PathVariable String date){
         try {
-            return new ResponseEntity<>(cinemaServices.getFunctionsbyCinemaAndDate(cinema, date), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(cinemaServices.getFunctionsbyCinemaAndDate(name, date), HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(edu.eci.arsw.cinema.controllers.CinemaAPIController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Funcion no encontrada ",HttpStatus.NOT_FOUND);
@@ -61,10 +61,10 @@ public class CinemaAPIController {
     }
     
     @RequestMapping(value="/{name}/{date}/{moviename}", method = RequestMethod.GET)
-    public ResponseEntity<?> getMoviebyCinemaAndDate(@PathVariable String cinema, @PathVariable String date, @PathVariable String moviename) throws CinemaPersistenceException, CinemaException {
+    public ResponseEntity<?> getMoviebyCinemaAndDate(@PathVariable String name, @PathVariable String date, @PathVariable String moviename) throws CinemaPersistenceException, CinemaException {
         try {
             CinemaFunction b = null;
-            List<CinemaFunction> a = cinemaServices.getFunctionsbyCinemaAndDate(cinema, date);
+            List<CinemaFunction> a = cinemaServices.getFunctionsbyCinemaAndDate(name, date);
             for (CinemaFunction i : a) {
                 if (i.getMovie().getName().equals(moviename)) {
                     b = i;
