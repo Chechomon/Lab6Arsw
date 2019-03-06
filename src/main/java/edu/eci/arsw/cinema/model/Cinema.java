@@ -38,4 +38,17 @@ public class Cinema {
     public void setSchedule(List<CinemaFunction> functions) {
         this.functions = functions;
     }
+    
+    public void addFunction(CinemaFunction function){
+        this.functions.add(function);
+    }
+    
+    public void updateFunction(CinemaFunction cf) {
+        for (int i = 0; i < functions.size(); i++) {
+            CinemaFunction cfn = functions.get(i);
+            if (cfn.getDate().equals(cf.getDate()) && cfn.getMovie().getName().equals(cf.getMovie().getName())) {
+                functions.set(i, cf);
+            }
+        }
+    }
 }

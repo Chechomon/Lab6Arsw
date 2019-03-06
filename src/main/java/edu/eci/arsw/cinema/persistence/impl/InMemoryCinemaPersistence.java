@@ -86,5 +86,22 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     public Map<String,Cinema> getAllCinemas() {
         return cinemas;
     }
-
+    
+    @Override
+    public List<CinemaFunction> getFunctionsbyCinema(String cinema) {
+        List<CinemaFunction> functions = cinemas.get(cinema).getFunctions();
+        return functions;
+    }
+    
+    @Override
+    public void addFunction(String name, CinemaFunction cf) throws CinemaPersistenceException {
+        Cinema c = getCinema(name);
+        c.addFunction(cf);
+    }
+    
+    @Override
+    public void updateFunction(String name, CinemaFunction cf) throws CinemaPersistenceException {
+        Cinema c = getCinema(name);
+        c.updateFunction(cf);
+    }
 }

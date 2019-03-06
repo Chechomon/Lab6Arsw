@@ -54,4 +54,9 @@ public interface CinemaPersitence {
 
     Map<String,Cinema> getAllCinemas();
     
+    public List<CinemaFunction> getFunctionsbyCinema(String cinema);
+    
+    public void addFunction(String name, CinemaFunction cf) throws CinemaPersistenceException;
+    
+    public void updateFunction(String name, CinemaFunction cf) throws CinemaPersistenceException;
 }

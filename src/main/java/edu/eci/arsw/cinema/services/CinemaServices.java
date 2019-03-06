@@ -18,13 +18,14 @@ import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.*;
 
 /**
  *
  * @author cristian
  */
 @Service
+@Component("cinemaServices")
 public class CinemaServices {
 
     @Autowired
@@ -62,5 +63,17 @@ public class CinemaServices {
 
     public List<Movie> filter(String cinema, String date, String filter) throws CinemaPersistenceException {
         return fil.filter(cps.getCinema(cinema),date,filter);
+    }
+    
+    public List<CinemaFunction> getFunctionsbyCinema(String cinema){
+        return cps.getFunctionsbyCinema(cinema);
+    }
+    
+    public void addFunction(String name, CinemaFunction function) throws CinemaPersistenceException {
+    	cps.addFunction(name, function);
+    }
+    
+    public void updateFunction(String name, CinemaFunction cf) throws CinemaPersistenceException {
+        cps.updateFunction(name, cf);
     }
 }
