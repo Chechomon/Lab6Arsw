@@ -4,11 +4,13 @@ Nombre:
 * Sergio Alejandro Peña Pinto
 
 ## *Part I.*
-![](img/1.PNG)
+![](img/0.PNG)
 
 ![](img/11.PNG)
 
 ![](img/2.PNG)
+
+![](img/1.PNG)
 
 ![](img/21.PNG)
 
