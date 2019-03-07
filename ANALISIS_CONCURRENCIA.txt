@@ -1,0 +1,6 @@
+What career conditions could be presented?
+There may be race conditions when accessing the arrangement of functions within a cinema, since a request may be trying add a new function, another may be modifying an existing function and another may be consulting all the functions, therefore they would be fighting for the resource that ne this case would be the list
+
+What are the respective critical regions?
+The critical regions would be all the methods that access the arrangement of functions such as 
+adding a new function, modifying it or returning the array of functions
