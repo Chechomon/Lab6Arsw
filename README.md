@@ -23,8 +23,8 @@ Nombre:
 ## *Part II.*
 ![](img/5.PNG)
 
-![](img/6.PNG)
-
 ![](img/7.PNG)
+
+![](img/6.PNG)
 
 ![](img/9.PNG)
